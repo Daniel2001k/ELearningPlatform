@@ -2,6 +2,7 @@ using ELearningPlatform.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -14,5 +15,6 @@ builder.Services.AddHttpClient("ELearningPlatform.ServerAPI", client => client.B
 builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("ELearningPlatform.ServerAPI"));
 
 builder.Services.AddApiAuthorization();
+builder.Services.AddMudServices();
 
 await builder.Build().RunAsync();
