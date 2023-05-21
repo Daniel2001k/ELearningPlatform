@@ -1,10 +1,9 @@
 ﻿using Duende.IdentityServer.EntityFramework.Options;
-using ELearningPlatform.Server.Models;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-namespace ELearningPlatform.Server.Data
+namespace ELearningPlatform.Server.Data.Models
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
