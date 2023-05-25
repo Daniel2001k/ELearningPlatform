@@ -1,0 +1,16 @@
+﻿<MudGrid Class="d-flex flex-column ma-16" Justify="Justify.Center">
+    <MudText Align="Align.Center" Typo="Typo.h2">Make your language more fluent with our help!</MudText>
+    <MudText Class="ma-5" Align="Align.Center" Typo="Typo.body1">Languages ​​currently provided:</MudText>
+    <MudGrid Justify="Justify.Center">
+        @for (int i = 0; i < 14; i++)
+        {
+            <MudItem xs="2">
+                <MudPaper Class="pa-16 ma-2 d-flex justify-center align-center flex-column" Elevation="9" Style="height: 64px; width: 64px;">
+                    <MudAvatar Class="mb-4" Style="height:70px; width:70px; font-size:2rem;" Color="Color.Primary">A</MudAvatar>
+                    <MudText Align="Align.Center" Typo="Typo.body2">English</MudText>
+                </MudPaper>
+            </MudItem>
+        }
+    </MudGrid>
+</MudGrid>
+<MudDivider />

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearningPlatform.Server", "ELearningPlatform\Server\ELearningPlatform.Server.csproj", "{41CA994D-76BB-4998-8349-BADC2CF2EE83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELearningPlatform.Server", "ELearningPlatform\Server\ELearningPlatform.Server.csproj", "{41CA994D-76BB-4998-8349-BADC2CF2EE83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearningPlatform.Client", "ELearningPlatform\Client\ELearningPlatform.Client.csproj", "{DB8569FC-DA88-4CBE-BA7E-51A4D3DE8188}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELearningPlatform.Client", "ELearningPlatform\Client\ELearningPlatform.Client.csproj", "{DB8569FC-DA88-4CBE-BA7E-51A4D3DE8188}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearningPlatform.Shared", "ELearningPlatform\Shared\ELearningPlatform.Shared.csproj", "{9AB262A7-C255-41DE-BC01-146A274DABDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELearningPlatform.Shared", "ELearningPlatform\Shared\ELearningPlatform.Shared.csproj", "{9AB262A7-C255-41DE-BC01-146A274DABDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
