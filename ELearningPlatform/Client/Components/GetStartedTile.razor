@@ -1,0 +1,14 @@
+<MudGrid Class="d-flex flex-column ma-16" Justify="Justify.Center">
+    <MudText Align="Align.Center" Class="ma-5" Typo="Typo.h4">Start your language career right now!</MudText>
+    <MudSpacer />
+    <MudItem Class="d-flex justify-center">
+        <AuthorizeView>
+            <Authorized>
+                <MudButton Variant="Variant.Filled" Size="Size.Large" StartIcon="@Icons.Material.Filled.Start" Color="Color.Primary" Edge="Edge.Start" OnClick="@(() => NavigationManager.NavigateTo("/"))">Get Started!</MudButton>
+            </Authorized>
+            <NotAuthorized>
+                <MudButton Variant="Variant.Filled" Size="Size.Large" StartIcon="@Icons.Material.Filled.Login" Color="Color.Primary" Edge="Edge.Start" OnClick="@(() => NavigationManager.NavigateTo("authentication/login"))">Get Started!</MudButton>
+            </NotAuthorized>
+        </AuthorizeView>
+    </MudItem>
+</MudGrid>
