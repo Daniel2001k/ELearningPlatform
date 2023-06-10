@@ -1,0 +1,35 @@
+﻿@page "/available-courses"
+
+<MudDataGrid Items="@courses" Filterable="false" SortMode="@SortMode.None" Groupable="false">
+    <Columns>
+        <PropertyColumn Property="x => x.Language.Name" Title="Language" />
+        <PropertyColumn Property="@(x => $"{x.Tutor.User.Name} {x.Tutor.User.Surname}")" Title="Tutor" />
+        <PropertyColumn Property="x => x.Level.Name" Title="Level" />
+        <PropertyColumn Property="x => x.CourseStudents.Count" Title="Students Joined" />
+        <PropertyColumn Property="x => x.Price" Format="C" />
+        <TemplateColumn CellClass="d-flex justify-end">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudRating ReadOnly Size="@Size.Small" SelectedValue="@context.Item.Rating" />
+                    <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="@Color.Primary" OnClick="@(() => NavigationManager.NavigateTo($"joincourse/{context.Item.Id}"))">Join course</MudButton>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+</MudDataGrid>
+
+@code {
+    public IEnumerable<Course> courses = Enumerable.Empty<Course>();
+
+    protected override void OnInitialized()
+    {
+        courses = new List<Course>
+        {
+            new Course(1, 4, 87, new Language(1, "Japan"), new CurseLevel(1, "Hard"), new Tutor(1, new User(1, "Sam", "SomeSurname", new DateTime(1990, 2, 3, 4, 5, 6), "12345678912")), new List<CourseStudent>(){}),
+            new Course(2, 5, 43, new Language(1, "Chinesee"), new CurseLevel(1, "Hard"), new Tutor(1, new User(1, "Alicia", "SomeSurname", new DateTime(1990, 2, 3, 4, 5, 6), "12345678912")), new List<CourseStudent>(){}),
+            new Course(3, 3, 92, new Language(1, "Poland"), new CurseLevel(1, "Hard"), new Tutor(1, new User(1, "Ira", "SomeSurname", new DateTime(1990, 2, 3, 4, 5, 6), "12345678912")), new List<CourseStudent>(){}),
+            new Course(4, 4, 17, new Language(1, "Deutch"), new CurseLevel(1, "Medium"), new Tutor(1, new User(1, "John", "SomeSurname", new DateTime(1990, 2, 3, 4, 5, 6), "12345678912")), new List<CourseStudent>(){}),
+            new Course(5, 4, 84, new Language(1, "English"), new CurseLevel(1, "Easy"), new Tutor(1, new User(1, "Abraham", "SomeSurname", new DateTime(1990, 2, 3, 4, 5, 6), "12345678912")), new List<CourseStudent>(){})
+        };
+    }
+}

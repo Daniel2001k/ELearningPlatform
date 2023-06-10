@@ -4,7 +4,7 @@
     <MudItem Class="d-flex justify-center">
         <AuthorizeView>
             <Authorized>
-                <MudButton Variant="Variant.Filled" Size="Size.Large" StartIcon="@Icons.Material.Filled.Start" Color="Color.Primary" Edge="Edge.Start" OnClick="@(() => NavigationManager.NavigateTo("/"))">Get Started!</MudButton>
+                <MudButton Variant="Variant.Filled" Size="Size.Large" StartIcon="@Icons.Material.Filled.Start" Color="Color.Primary" Edge="Edge.Start" OnClick="@(() => NavigationManager.NavigateTo("/courses-panel"))">Get Started!</MudButton>
             </Authorized>
             <NotAuthorized>
                 <MudButton Variant="Variant.Filled" Size="Size.Large" StartIcon="@Icons.Material.Filled.Login" Color="Color.Primary" Edge="Edge.Start" OnClick="@(() => NavigationManager.NavigateTo("authentication/login"))">Get Started!</MudButton>

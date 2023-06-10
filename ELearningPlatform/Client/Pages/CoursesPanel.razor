@@ -1,0 +1,22 @@
+﻿@page "/courses-panel"
+
+<MudGrid Class="d-flex ma-16" Justify="Justify.Center">
+
+    <MudItem xs="6">
+        <MudButton Class="pa-16 ma-2 d-flex justify-center align-center flex-column" Style="width: 100%; height: 100%;" Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(() => NavigationManager.NavigateTo("available-courses"))">
+            <MudIcon Icon="@Icons.Material.Filled.Person"></MudIcon>
+            <MudText Align="Align.Center" Typo="Typo.body2">Student</MudText>
+        </MudButton>
+    </MudItem>
+    
+    <MudItem xs="6">
+        <MudButton Class="pa-16 ma-2 d-flex justify-center align-center flex-column" Style="width: 100%; height: 100%;" Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(() => NavigationManager.NavigateTo("create-courses"))">
+            <MudIcon Icon="@Icons.Material.Filled.Person4"></MudIcon>
+            <MudText Align="Align.Center" Typo="Typo.body2">Teacher</MudText>
+        </MudButton>
+    </MudItem>
+</MudGrid>
+
+@code {
+
+}

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELearningPlatform.Client", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELearningPlatform.Shared", "ELearningPlatform\Shared\ELearningPlatform.Shared.csproj", "{9AB262A7-C255-41DE-BC01-146A274DABDD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hub", "Hub", "{5B466045-A0DA-4359-938B-42C2ABCC8112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{41CA994D-76BB-4998-8349-BADC2CF2EE83} = {5B466045-A0DA-4359-938B-42C2ABCC8112}
+		{DB8569FC-DA88-4CBE-BA7E-51A4D3DE8188} = {5B466045-A0DA-4359-938B-42C2ABCC8112}
+		{9AB262A7-C255-41DE-BC01-146A274DABDD} = {5B466045-A0DA-4359-938B-42C2ABCC8112}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBA43512-69AE-4A3F-BDC8-A9C49E74AC55}
