@@ -1,5 +1,6 @@
 ﻿@using System.Net.Http
 @using System.Net.Http.Json
+@using ELearningPlatform.Client.Services;
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Routing
@@ -14,4 +15,8 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using ELearningPlatform.Shared;
 
+
+@inject ICourseService CourseService
+@inject ILevelService LevelService
+@inject ILanguageService LanguageService
 @inject NavigationManager NavigationManager

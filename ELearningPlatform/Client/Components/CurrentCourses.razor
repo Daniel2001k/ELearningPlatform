@@ -1,0 +1,26 @@
+<MudDataGrid Items="@courses" Filterable="false" SortMode="@SortMode.None" Groupable="false">
+    <Columns>
+        <PropertyColumn Property="x => x.Language.Name" Title="Language" />
+        <PropertyColumn Property="@(x => $"{x.Tutor.User.Name} {x.Tutor.User.Surname}")" Title="Tutor" />
+        <PropertyColumn Property="x => x.Level.Name" Title="Level" />
+        <PropertyColumn Property="x => x.CourseStudents.Count" Title="Students Joined" />
+        <PropertyColumn Property="x => x.Price" Format="C" />
+        <TemplateColumn CellClass="d-flex justify-end">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudRating ReadOnly Size="@Size.Small" SelectedValue="@context.Item.Rating" />
+                    <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="@Color.Primary" OnClick="@(() => NavigationManager.NavigateTo($"edit-course/{context.Item.Id}"))">Edit course</MudButton>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+</MudDataGrid>
+
+@code {
+    public IEnumerable<Course> courses = Enumerable.Empty<Course>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await CourseService.GetCourseList();
+    }
+}

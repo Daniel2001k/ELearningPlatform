@@ -2,15 +2,19 @@
 
 public partial class Course
 {
-    public Course()
+    public Course(int tutorId, int languageId, int levelId, double? price)
     {
-        CourseStudents = new HashSet<CourseStudent>();
+        TutorId = tutorId;
+        LanguageId = languageId;
+        LevelId = levelId;
+        Price = price;
     }
 
     public int Id { get; set; }
     public int TutorId { get; set; }
     public int LanguageId { get; set; }
     public int LevelId { get; set; }
+    public double? Price { get; set; }
 
     public virtual Language Language { get; set; } = null!;
     public virtual CurseLevel Level { get; set; } = null!;

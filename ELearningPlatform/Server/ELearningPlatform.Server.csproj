@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>ELearningPlatform.Server-57511506-2784-461f-af9b-04b05cc42606</UserSecretsId>
   </PropertyGroup>

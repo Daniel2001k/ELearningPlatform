@@ -8,6 +8,14 @@ public partial class User
         Tutors = new HashSet<Tutor>();
     }
 
+    public User(string name, string surname, DateTime birthDate, string pesel)
+    {
+        Name = name;
+        Surname = surname;
+        BirthDate = birthDate;
+        Pesel = pesel;
+    }
+
     public int Id { get; set; }
     public string Name { get; set; } = null!;
     public string Surname { get; set; } = null!;

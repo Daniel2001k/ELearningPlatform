@@ -6,9 +6,13 @@ using Microsoft.Extensions.Options;
 
 namespace ELearningPlatform.Server.Data;
 
-public partial class CoursePlatformContext : ApiAuthorizationDbContext<ApplicationUser>
+public partial class CoursePlatformContext : DbContext
 {
-    public CoursePlatformContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+    public CoursePlatformContext()
+    {
+
+    }
+    public CoursePlatformContext(DbContextOptions<CoursePlatformContext> options) : base(options)
     {
     }
 
@@ -30,7 +34,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("Course");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.HasOne(d => d.Language)
                 .WithMany(p => p.Courses)
@@ -55,7 +59,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("CourseStudent");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.HasOne(d => d.Course)
                 .WithMany(p => p.CourseStudents)
@@ -68,7 +72,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("CurseLevel");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.Property(e => e.Name)
                 .HasMaxLength(1)
@@ -79,7 +83,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("Language");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.Property(e => e.Name)
                 .HasMaxLength(1)
@@ -90,7 +94,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("Student");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.HasOne(d => d.User)
                 .WithMany(p => p.Students)
@@ -103,7 +107,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("Task");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.HasOne(d => d.TaskType)
                 .WithMany(p => p.Tasks)
@@ -116,7 +120,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("TaskType");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.Property(e => e.Name)
                 .HasMaxLength(1)
@@ -127,7 +131,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("Tutor");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.HasOne(d => d.User)
                 .WithMany(p => p.Tutors)
@@ -140,7 +144,7 @@ public partial class CoursePlatformContext : ApiAuthorizationDbContext<Applicati
         {
             entity.ToTable("User");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.HasKey(e => e.Id);
 
             entity.Property(e => e.BirthDate).HasColumnType("date");
 

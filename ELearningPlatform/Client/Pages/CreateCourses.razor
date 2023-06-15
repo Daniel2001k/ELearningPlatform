@@ -1,7 +1,14 @@
 ﻿@page "/create-courses"
 
-<h3>CreateCourses</h3>
+<CurrentCourses></CurrentCourses>
+
+<MudButton StartIcon="@Icons.Material.Filled.Start" OnClick="(() => {_isCreatingMode ^= true;})">Create your own course!</MudButton>
+
+@if (_isCreatingMode)
+{
+    <CourseEditor />
+}
 
 @code {
-
+    private bool _isCreatingMode = false;
 }
