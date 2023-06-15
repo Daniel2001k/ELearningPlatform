@@ -17,7 +17,7 @@
                         <MudSelectItem Value="@item">@item.Name</MudSelectItem>
                     }
                 </MudSelect>
-                <MudNumericField Required @bind-Value="Course.Price" Label="Enter a price" Variant="Variant.Outlined" />
+                <MudNumericField Required @bind-Value="Course.Price" Label="Enter a price" Variant="Variant.Outlined" Max="4000" Min="0" />
 
                 <div class="d-flex align-center justify-space-between">
                     <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="AddCourse">Add</MudButton>
