@@ -1,5 +1,7 @@
-﻿using ELearningPlatform.Server.Data;
+﻿using ELearningPlatform.Server.Commands;
+using ELearningPlatform.Server.Data;
 using ELearningPlatform.Server.Extensions;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Course = ELearningPlatform.Shared.Course;
@@ -10,22 +12,19 @@ namespace ELearningPlatform.Server.Controllers;
 [ApiController]
 public class CourseController : Controller
 {
-    private readonly CoursePlatformContext _dbContext;
-    public CourseController(CoursePlatformContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
+    private readonly IMediator _mediator;
 
+    public CourseController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Course>>> GetList()
     {
         try
         {
-            var result = await _dbContext.Courses.Include(x => x.Language)
-                                                 .Include(x => x.Level)
-                                                 .Include(x => x.Tutor)
-                                                    .ThenInclude(x => x.User)
-                                                 .ToListAsync();
+            var command = new GetCourseListCommand();
+            var result = await _mediator.Send(command);
 
             return Ok(result.ToUI());
         }
@@ -40,10 +39,10 @@ public class CourseController : Controller
     {
         try
         {
-            var courseDomain = new Data.Models.Course(1, course.Language.Id, course.Level.Id, course.Price);
+            var command = new CreateCourseCommand(course.ToDomain());
+            var result = await _mediator.Send(command);
 
-            await _dbContext.Courses.AddAsync(courseDomain);
-            await _dbContext.SaveChangesAsync();
+            Ok();
         }
         catch (Exception ex)
         {

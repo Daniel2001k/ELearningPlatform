@@ -5,29 +5,22 @@
 <MudSnackbarProvider />
 
 
-<AuthorizeView>
-    <Authorized>
-        <MudLayout>
-            <MudAppBar Fixed Class="d-flex justify-center align-content-center flex-row flex-grow-1 gap-4" Elevation="0">
-                <MudButton StartIcon="@Icons.Material.Filled.Home" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(() => NavigationManager.NavigateTo("/"))">E-Teacher</MudButton>
-                <LoginDisplay />
-                <MudSwitch ThumbIcon="@(_isDarkMode ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode)" @bind-Checked="@_isDarkMode" Color="Color.Primary" Class="ma-4" T="bool" Label="DARK MODE" />
-            </MudAppBar>
-            <MudMainContent>
-                <MudContainer MaxWidth="MaxWidth.Large">
-                    @Body
-                </MudContainer>
-            </MudMainContent>
-        </MudLayout>
+<MudLayout>
+    <MudAppBar Fixed Class="d-flex justify-center align-content-center flex-row flex-grow-1 gap-4" Elevation="0">
+        <MudButton StartIcon="@Icons.Material.Filled.Home" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(() => NavigationManager.NavigateTo("/"))">E-Teacher</MudButton>
+        <LoginDisplay />
+        <MudSwitch ThumbIcon="@(_isDarkMode ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode)" @bind-Checked="@_isDarkMode" Color="Color.Primary" Class="ma-4" T="bool" Label="DARK MODE" />
+    </MudAppBar>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
 
-        <MudScrollToTop>
-            <MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowCircleUp" />
-        </MudScrollToTop>
-    </Authorized>
-    <NotAuthorized>
-        <RedirectToLogin />
-    </NotAuthorized>
-</AuthorizeView>
+<MudScrollToTop>
+    <MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowCircleUp" />
+</MudScrollToTop>
 
 
 

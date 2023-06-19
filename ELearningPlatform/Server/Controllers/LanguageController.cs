@@ -1,5 +1,7 @@
-﻿using ELearningPlatform.Server.Data;
+﻿using ELearningPlatform.Server.Commands;
+using ELearningPlatform.Server.Data;
 using ELearningPlatform.Server.Extensions;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Language = ELearningPlatform.Shared.Language;
@@ -10,10 +12,11 @@ namespace ELearningPlatform.Server.Controllers;
 [ApiController]
 public class LanguageController : Controller
 {
-    private readonly CoursePlatformContext _dbContext;
-    public LanguageController(CoursePlatformContext dbContext)
+    private readonly IMediator _mediator;
+
+    public LanguageController(IMediator mediator)
     {
-        _dbContext = dbContext;
+        _mediator = mediator;
     }
 
     [HttpGet]
@@ -21,7 +24,9 @@ public class LanguageController : Controller
     {
         try
         {
-            var result = await _dbContext.Languages.ToListAsync();
+            var command = new GetLanguageListCommand();
+            var result = await _mediator.Send(command);
+
             return Ok(result.ToUI());
         }
         catch (Exception ex)

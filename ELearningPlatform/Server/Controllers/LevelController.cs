@@ -1,5 +1,7 @@
-﻿using ELearningPlatform.Server.Data;
+﻿using ELearningPlatform.Server.Commands;
+using ELearningPlatform.Server.Data;
 using ELearningPlatform.Server.Extensions;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CurseLevel = ELearningPlatform.Shared.CurseLevel;
@@ -10,10 +12,11 @@ namespace ELearningPlatform.Server.Controllers;
 [ApiController]
 public class LevelController : Controller
 {
-    private readonly CoursePlatformContext _dbContext;
-    public LevelController(CoursePlatformContext dbContext)
+    private readonly IMediator _mediator;
+
+    public LevelController(IMediator mediator)
     {
-        _dbContext = dbContext;
+        _mediator = mediator;
     }
 
     [HttpGet]
@@ -21,7 +24,8 @@ public class LevelController : Controller
     {
         try
         {
-            var result = await _dbContext.CurseLevels.ToListAsync();
+            var command = new GetLevelListCommand();
+            var result = await _mediator.Send(command);
             return Ok(result.ToUI());
         }
         catch (Exception ex)
